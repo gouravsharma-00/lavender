@@ -57,7 +57,7 @@ export const AIInsights = () => {
                 className="bg-card border border-border rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 bg-emerald-light rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 bg-emerald-light rounded-xl flex items-center justify-center shrink-0">
                     <Icon className={`w-5 h-5 ${insight.color}`} />
                   </div>
                   <div>

@@ -87,7 +87,7 @@ export const Hero = () => {
                 {/* AI insight badge */}
                 <div className="bg-emerald-light border border-accent/20 rounded-xl p-4">
                   <div className="flex items-start gap-3">
-                    <Sparkles className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                    <Sparkles className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                     <div>
                       <p className="text-sm font-medium text-foreground">AI Insight</p>
                       <p className="text-xs text-muted-foreground mt-1">
