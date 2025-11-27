@@ -1,7 +1,7 @@
 {
   "name": "lavender",
   "version": "0.0.0",
-  "description": "An AI based Finance Mangement software for \"People Who Want to Win\"",
+  "description": "An AI based Finance Management software for \"People Who Want to Win\"",
   "keywords": [
     "Finance",
     "AI",
@@ -28,7 +28,6 @@
     "@types/react": "^19.2.6",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.17",
-    "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.9.3"
   }
 }

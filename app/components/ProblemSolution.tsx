@@ -48,78 +48,79 @@ export const ProblemSolution = () => {
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-subtle">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#E9D8FD]/50 to-white">
       <div className="max-w-7xl mx-auto">
+
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
             Managing Money Shouldn't Be This Hard
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Traditional finance apps make you do all the work. Lavender's AI does the heavy lifting.
           </p>
         </div>
 
-        {/* Problems Section */}
+        {/* Problems */}
         <div className="mb-20">
           <div className="text-center mb-10">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-destructive/10 text-destructive rounded-full text-sm font-medium mb-4">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 text-red-500 rounded-full text-sm font-medium mb-4">
               Common Frustrations
             </span>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {problems.map((problem, index) => {
+            {problems.map((problem, i) => {
               const Icon = problem.icon;
               return (
-                <div key={index} className="bg-card border border-border rounded-xl p-6 hover:shadow-md transition-all">
-                  <div className="w-12 h-12 bg-destructive/10 rounded-xl flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-destructive" />
+                <div key={i} className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-md transition-all">
+                  <div className="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-red-500" />
                   </div>
-                  <h3 className="font-semibold text-foreground mb-2">{problem.title}</h3>
-                  <p className="text-sm text-muted-foreground">{problem.description}</p>
+                  <h3 className="font-semibold text-slate-900 mb-2">{problem.title}</h3>
+                  <p className="text-sm text-slate-600">{problem.description}</p>
                 </div>
               );
             })}
           </div>
         </div>
 
-        {/* Divider with arrow */}
+        {/* Divider Arrow */}
         <div className="flex items-center justify-center mb-20">
-          <div className="h-px bg-border flex-1 max-w-xs"></div>
-          <div className="mx-8 w-12 h-12 bg-accent rounded-full flex items-center justify-center">
-            <svg className="w-6 h-6 text-accent-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="h-px bg-slate-300 flex-1 max-w-xs"></div>
+          <div className="mx-8 w-12 h-12 bg-[#10B981] rounded-full flex items-center justify-center">
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </div>
-          <div className="h-px bg-border flex-1 max-w-xs"></div>
+          <div className="h-px bg-slate-300 flex-1 max-w-xs"></div>
         </div>
 
-        {/* Solutions Section */}
+        {/* Solutions */}
         <div>
           <div className="text-center mb-10">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-light text-accent rounded-full text-sm font-medium mb-4">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#10B981]/10 text-[#10B981] rounded-full text-sm font-medium mb-4">
               How Lavender Solves This
             </span>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {solutions.map((solution, index) => {
+            {solutions.map((solution, i) => {
               const Icon = solution.icon;
               return (
-                <div key={index} className="bg-card border border-accent/20 rounded-xl p-6 hover:shadow-lg hover:border-accent/40 transition-all">
-                  <div className="w-12 h-12 bg-emerald-light rounded-xl flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-accent" />
+                <div key={i} className="bg-white border border-[#10B981]/20 rounded-xl p-6 hover:shadow-lg hover:border-[#10B981]/40 transition-all">
+                  <div className="w-12 h-12 bg-[#10B981]/10 rounded-xl flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-[#10B981]" />
                   </div>
-                  <h3 className="font-semibold text-foreground mb-2">{solution.title}</h3>
-                  <p className="text-sm text-muted-foreground">{solution.description}</p>
+                  <h3 className="font-semibold text-slate-900 mb-2">{solution.title}</h3>
+                  <p className="text-sm text-slate-600">{solution.description}</p>
                 </div>
               );
             })}
           </div>
         </div>
+
       </div>
     </section>
   );
 };
-
