@@ -26,7 +26,7 @@ export const AIInsights = () => {
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#E9D8FD]/60 to-white relative overflow-hidden">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-[#E9D8FD]/60 to-white relative overflow-hidden">
 
       {/* Glow */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">

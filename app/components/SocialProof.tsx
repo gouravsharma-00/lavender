@@ -2,7 +2,7 @@ import { Star, Users, TrendingUp } from "lucide-react";
 
 export const SocialProof = () => {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#E9D8FD]/50 to-white">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-[#E9D8FD]/50 to-white">
       <div className="max-w-7xl mx-auto">
 
         {/* Stats */}

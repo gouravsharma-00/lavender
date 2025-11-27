@@ -3,7 +3,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#E9D8FD]/60 to-white py-20 px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-linear-to-b from-[#E9D8FD]/60 to-white py-20 px-4 sm:px-6 lg:px-8">
 
       {/* Decorative Glows */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">

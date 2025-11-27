@@ -68,7 +68,7 @@ export const Features = () => {
                 key={index}
                 className="group bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-xl hover:border-[#10B981]/40 transition-all duration-300"
               >
-                <div className={`w-14 h-14 bg-gradient-to-br ${feature.gradient} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                <div className={`w-14 h-14 bg-linear-to-br ${feature.gradient} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                   <Icon className="w-7 h-7 text-[#10B981]" />
                 </div>
 
