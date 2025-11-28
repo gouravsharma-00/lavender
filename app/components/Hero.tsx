@@ -1,5 +1,6 @@
 import { Button } from "@components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
+import Link from 'next/link'
 
 export const Hero = () => {
   return (
@@ -35,21 +36,24 @@ export const Hero = () => {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button
-                size="lg"
-                className="bg-[#10B981] hover:bg-[#0CA76E] text-white shadow-lg group"
-              >
-                Get Early Access
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-
-              <Button
-                size="lg"
-                className="border-slate-300 text-slate-900 hover:bg-slate-200"
-                variant="outline"
-              >
-                See How It Works
-              </Button>
+              <Link href="/auth">
+                <Button
+                  size="lg"
+                  className="bg-[#10B981] hover:bg-[#0CA76E] text-white shadow-lg group"
+                >
+                  Get Early Access
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <Link href="/about">
+                <Button
+                  size="lg"
+                  className="border-slate-300 text-slate-900 hover:bg-slate-200"
+                  variant="outline"
+                >
+                  See How It Works
+                </Button>
+              </Link>
             </div>
 
             {/* Badges */}

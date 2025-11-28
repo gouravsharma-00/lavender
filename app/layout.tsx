@@ -6,6 +6,7 @@ export default function RootLayout({children} : {children: React.ReactNode}) {
         <html lang='en'>
             <head>
                 <link rel='icon' href='/icons/lavender.png' />
+                <title>Lavender | Those who want to win</title>
             </head>
             <body>
                 {children}
