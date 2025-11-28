@@ -20,7 +20,8 @@
     "paths": {
       "@constant" : ["./constant/index.ts"],
       "@components" : ["./app/components/index"],
-      "@components/*" : ["./app/components/*"]
+      "@components/*" : ["./app/components/*"],
+      "@libs/*" : ["./libs/*"]
 
     },
     "plugins": [
