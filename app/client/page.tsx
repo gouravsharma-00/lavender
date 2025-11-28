@@ -3,6 +3,7 @@ import { LoadingOverlay } from '@components'
 import React, {
     useEffect, useState
 } from 'react'
+import ClientIndex from '.'
 
 export default function ClientPage() {
     const [user, setUser] = useState<any>(null)
@@ -15,11 +16,7 @@ export default function ClientPage() {
     }, [])
 
     return(
-        user ?  
-        <>
-            <p>Welcome {user.email}</p>
-            <a href='/auth?action=passkeyregister' className='text-green-400'>Add a passkey to enhance security</a>
-        </>
+        user ? <ClientIndex user={user}/>
         
         : <LoadingOverlay show={true} />
     )

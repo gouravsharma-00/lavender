@@ -17,6 +17,8 @@
     "dev": "next dev"
   },
   "dependencies": {
+    "@simplewebauthn/browser": "^13.2.2",
+    "@simplewebauthn/server": "^13.2.2",
     "lucide-react": "^0.554.0",
     "mongoose": "^9.0.0",
     "next": "^16.0.3",

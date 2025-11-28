@@ -5,6 +5,8 @@ import { FingerprintPattern, ScanFace  } from 'lucide-react';
 import {LoadingOverlay} from '@components';
 import { useRouter } from "next/navigation";
 
+import { startRegistration } from '@simplewebauthn/browser';
+
 export const PassKeyRegister = () => {
     const router = useRouter();
 
@@ -31,8 +33,51 @@ export const PassKeyRegister = () => {
     const handleLogin = async (e) => {
         setLoading(true);
         e.preventDefault();
-    
 
+        const res = await fetch("/api/auth/login", {
+            method: "POST",
+            body: JSON.stringify({email, password})
+        })
+
+        const data = await res.json();
+
+        if(data.status != 201) {
+            setError(data.message)
+        }
+        else {
+            const res = await fetch(`/api/auth/security/init`, {
+                method: "POST",
+                body: JSON.stringify({email})
+            })
+            const options = await res.json();
+
+            if(options.status != 201) {
+                setError(options.message)
+            }
+            else {
+                
+                const registrationJSON = await startRegistration(options.options)
+
+                const verifyResponse = await fetch(`/api/auth/security/verify`, {
+                    method: "POST",
+                    headers: {"Content-Type" : "application/json"},
+                    body: JSON.stringify(registrationJSON)
+                })
+
+                const verifyData = await verifyResponse.json()
+                if(verifyData.status != 201) {
+                    setError(verifyData.message)
+                }
+                else {
+                    // login passkey success
+
+                    localStorage.setItem("user", JSON.stringify(verifyData.user));
+                    router.replace('/client')
+                }
+            }
+        }
+
+        setLoading(false);
     }
 
     return(

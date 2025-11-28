@@ -5,6 +5,8 @@ import { FingerprintPattern, ScanFace  } from 'lucide-react';
 import {LoadingOverlay} from '@components';
 import { useRouter } from "next/navigation";
 
+import { startAuthentication } from '@simplewebauthn/browser';
+
 export const PassKeyLogin = () => {
     const router = useRouter();
 
@@ -16,7 +18,41 @@ export const PassKeyLogin = () => {
     const handleLogin = async (e) => {
         setLoading(true);
         e.preventDefault();
-    
+
+        
+        const res = await fetch(`/api/auth/security/login/init`, {
+            method: "POST",
+            body: JSON.stringify({email})
+        })
+        const options = await res.json();
+
+        if(options.status != 201) {
+            setError(options.message)
+        }
+        else {
+            
+            const authJSON = await startAuthentication(options.options)
+
+            const verifyResponse = await fetch(`/api/auth/security/login/verify`, {
+                method: "POST",
+                headers: {"Content-Type" : "application/json"},
+                body: JSON.stringify(authJSON)
+            })
+
+            const verifyData = await verifyResponse.json()
+            if(verifyData.status != 201) {
+                setError(verifyData.message)
+            }
+            else {
+                // login passkey success
+
+                localStorage.setItem("user", JSON.stringify(verifyData.user));
+                router.replace('/client')
+            }
+        }
+        
+
+        setLoading(false);
 
     }
 
