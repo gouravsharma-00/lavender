@@ -36,7 +36,7 @@ export const Hero = () => {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link href="/auth">
+              <Link href="/auth?action=register">
                 <Button
                   size="lg"
                   className="bg-[#10B981] hover:bg-[#0CA76E] text-white shadow-lg group"
