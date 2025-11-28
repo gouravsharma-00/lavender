@@ -39,8 +39,8 @@ export const LoginScreen = () => {
         <>
             <LoadingOverlay show={loading} />
 
-            <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+            <div className="min-h-screen flex items-center justify-center bg-white">
+            <div className=" p-8 w-full max-w-md">
                 <div className="text-center mb-8">
                     <h1 className="text-2xl font-bold text-gray-800">Welcome Back</h1>
                     <p className="text-gray-600">Please enter your credentials to login</p>
