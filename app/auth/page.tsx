@@ -1,18 +1,10 @@
-"use client"
+import React, { Suspense } from 'react'
+import AuthIndex from '.'
+import { LoadingOverlay } from '@components'
 
-import React from 'react'
-import {
-    RegisterScreen,
-    LoginScreen
-} from '@components'
-
-import { useSearchParams } from 'next/navigation';
 
 export default function AuthPage() {
-    const searchParams = useSearchParams();
-    const action = searchParams.get('action');
-
-    return(
-        action == "register" ? <RegisterScreen /> : <LoginScreen />
-    )
+    <Suspense fallback={<LoadingOverlay show={true} />}>
+        <AuthIndex />
+    </Suspense>
 }
