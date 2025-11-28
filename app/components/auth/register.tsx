@@ -1,6 +1,5 @@
 "use client"
 import React, { useState } from 'react'
-import { FingerprintPattern, ScanFace  } from 'lucide-react';
 import { LoadingOverlay } from '@components';
 import { useRouter } from 'next/navigation';
 
@@ -42,7 +41,7 @@ export const RegisterScreen = () => {
             <div className="p-8 w-full max-w-md">
                 <div className="text-center mb-8">
                     <h1 className="text-2xl font-bold text-gray-800">Welcome Winner</h1>
-                    <p className="text-gray-600">Please enter your credentials to login</p>
+                    <p className="text-gray-600">Please enter your credentials to register</p>
                 </div>
                 
                 <form className="space-y-6" onSubmit={handleRegister}>
@@ -89,25 +88,7 @@ export const RegisterScreen = () => {
                 </div>
 
                 <div className="mt-6">
-                    <div className="relative">
-                        <div className="absolute inset-0 flex items-center">
-                            <div className="w-full border-t border-gray-300"></div>
-                        </div>
-                        <div className="relative flex justify-center text-sm">
-                            <span className="px-2 bg-white text-gray-500">Or register with</span>
-                        </div>
-                    </div>
-                    
-                    <div className="mt-6 grid grid-cols-2 gap-3">
-                        <button type="button" className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            <FingerprintPattern />
-                        </button>
-                        
-                        <button type="button" className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            <ScanFace  />
-                        </button>
-                    </div>
-                    
+
                     <p className="mt-6 text-center text-sm text-gray-600">
                         Already have an account? 
                         <a href="/auth?action=login" className="font-medium text-blue-600 hover:text-blue-500">Sign in</a>

@@ -15,6 +15,12 @@ export default function ClientPage() {
     }, [])
 
     return(
-        user ?  <p>Welcome {user.email}</p>: <LoadingOverlay show={true} />
+        user ?  
+        <>
+            <p>Welcome {user.email}</p>
+            <a href='/auth?action=passkeyregister' className='text-green-400'>Add a passkey to enhance security</a>
+        </>
+        
+        : <LoadingOverlay show={true} />
     )
 }
