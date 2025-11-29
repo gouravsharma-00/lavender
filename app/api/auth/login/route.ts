@@ -13,7 +13,7 @@ export async function POST(req: Request) {
     }
 
     try {
-        connectDB()
+        await connectDB()
 
         // @ts-ignore
         const exist = await User.findOne({email})
