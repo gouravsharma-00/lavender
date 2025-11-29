@@ -11,3 +11,6 @@ export * from './auth/login'
 export * from './Loading'
 export * from './auth/security/register'
 export * from './auth/security/login'
+
+export * from './ui/fingerPrint'
+export * from './Model'

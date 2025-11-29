@@ -22,7 +22,7 @@ export async function POST(req: Request) {
             options: options,
             status: 201
         }, {status: 201})
-
+        console.log(options)
         res.cookies.set({
             name: "regInfo",
             value: JSON.stringify({

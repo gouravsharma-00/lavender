@@ -1,8 +1,8 @@
 "use client"
 
-import React, { useState } from 'react'
-import { FingerprintPattern, ScanFace  } from 'lucide-react';
+import React from 'react'
 import { useRouter } from "next/navigation";
+import {FingerPrint} from '@components'
 
 export default function ClientIndex({user}) {
     const router = useRouter();
@@ -51,21 +51,13 @@ export default function ClientIndex({user}) {
                         <div className="relative flex justify-center text-sm">
                             <span className="px-2 bg-white text-gray-500">
                                 {
-                                    user.id ? "Add a PassKey" : "Update Your PassKey"
+                                    user.credentialID ? "Update Your PassKey" : "Add a PassKey" 
                                 }
                             </span>
                         </div>
                     </div>
                     
-                    <div className="mt-6 grid grid-cols-2 gap-3">
-                        <button onClick={() => router.push("/auth?action=passkeyregister")} type="button" className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            <FingerprintPattern />
-                        </button>
-                        
-                        <button onClick={() => router.push("/auth?action=passkeyregister")} type="button" className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            <ScanFace  />
-                        </button>
-                    </div>
+                    <FingerPrint type={"register"} />
                     
                 </div>
             </div>

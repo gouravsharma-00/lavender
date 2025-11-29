@@ -34,16 +34,15 @@ export async function POST(req: Request) {
         
         if(verification.verified) {
             await connectDB();
-            
             // @ts-ignore
             const updatedUser = await User.findOneAndUpdate({ email:  regInfo.email },
                 {
-                    Id: verification.registrationInfo.credential.id,
-                    publicKey: verification.registrationInfo.credential.publicKey,
+                    credentialID: Buffer.from(verification.registrationInfo.credential.id),
+                    credentialPublicKey: Buffer.from(verification.registrationInfo.credential.publicKey),
                     counter: verification.registrationInfo.credential.counter,
                     deviceType: verification.registrationInfo.credentialDeviceType,
                     backedUp: verification.registrationInfo.credentialBackedUp,
-                    transport: registrationJSON.response.transports
+                    transports: registrationJSON.response.transports
                 },
                 { new: true }
             );
@@ -53,7 +52,7 @@ export async function POST(req: Request) {
                 status: 201,
                 verified: verification.verified,
                 user: updatedUser
-                
+
             }, {status: 201})
 
             res.cookies.delete("regInfo")

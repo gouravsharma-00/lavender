@@ -4,8 +4,13 @@ import React from 'react'
 import {
     RegisterScreen,
     LoginScreen,
+    
+    /**
+     * 
     PassKeyRegister,
     PassKeyLogin
+
+    **/
 
 } from '@components'
 
@@ -17,8 +22,14 @@ export default function AuthIndex() {
 
     return(
         action == "register" ? <RegisterScreen />  : 
+        action == "login" ? <LoginScreen /> : ""
+
+        // TO-DO: Complete Pass-Key
+        /**
+         * 
         action === "passkeyregister" ? <PassKeyRegister /> : 
         action === "passkeylogin" ? <PassKeyLogin /> :
-        <LoginScreen />
+
+        **/
     )
 }

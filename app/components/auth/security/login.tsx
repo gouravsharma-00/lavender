@@ -22,7 +22,8 @@ export const PassKeyLogin = () => {
         
         const res = await fetch(`/api/auth/security/login/init`, {
             method: "POST",
-            body: JSON.stringify({email})
+            body: JSON.stringify({email}),
+            credentials: "include"
         })
         const options = await res.json();
 
@@ -30,13 +31,17 @@ export const PassKeyLogin = () => {
             setError(options.message)
         }
         else {
-            
+            // console.log("OPTIONS FROM SERVER", options.options);
+            // console.log("ALLOW CREDENTIALS", options.options.allowCredentials);
+
             const authJSON = await startAuthentication(options.options)
+            
 
             const verifyResponse = await fetch(`/api/auth/security/login/verify`, {
                 method: "POST",
                 headers: {"Content-Type" : "application/json"},
-                body: JSON.stringify(authJSON)
+                body: JSON.stringify(authJSON),
+                credentials: "include",
             })
 
             const verifyData = await verifyResponse.json()

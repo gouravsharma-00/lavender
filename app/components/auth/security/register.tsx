@@ -47,7 +47,8 @@ export const PassKeyRegister = () => {
         else {
             const res = await fetch(`/api/auth/security/init`, {
                 method: "POST",
-                body: JSON.stringify({email})
+                body: JSON.stringify({email}),
+                credentials: "include",
             })
             const options = await res.json();
 
@@ -61,7 +62,8 @@ export const PassKeyRegister = () => {
                 const verifyResponse = await fetch(`/api/auth/security/verify`, {
                     method: "POST",
                     headers: {"Content-Type" : "application/json"},
-                    body: JSON.stringify(registrationJSON)
+                    body: JSON.stringify(registrationJSON),
+                    credentials: "include",
                 })
 
                 const verifyData = await verifyResponse.json()

@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import { LoadingOverlay } from '@components';
+import { LoadingOverlay, ModelOverlay } from '@components';
 import { useRouter } from 'next/navigation';
 
 export const RegisterScreen = () => {
@@ -10,7 +10,9 @@ export const RegisterScreen = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
+    const [model, setModel] = useState<{model: boolean, message: {title: string, body: string}}>(
+        {model: false, message: {title: "", body: ""}}
+    );
 
     const handleRegister = async (e) => {
         setLoading(true)
@@ -26,7 +28,7 @@ export const RegisterScreen = () => {
         setLoading(false);
 
         if(data.status != 201) {
-            setError(data.message)
+            setModel({model: true, message: {title: "Error", body: data.message}})
         }
         else  {
             localStorage.setItem("user", JSON.stringify(data.user));
@@ -83,15 +85,13 @@ export const RegisterScreen = () => {
                 </form>
 
                 {/* error */}
-                <div className="relative flex justify-center text-sm">
-                    <span className="px-2 bg-white text-red-500 mt-1">{error}</span>
-                </div>
+                <ModelOverlay model={model} setModel={setModel} />
 
                 <div className="mt-6">
 
                     <p className="mt-6 text-center text-sm text-gray-600">
                         Already have an account? 
-                        <a href="/auth?action=login" className="font-medium text-blue-600 hover:text-blue-500">Sign in</a>
+                        <a href="/auth?action=login" className="font-medium text-blue-600 hover:text-blue-500"> Sign in</a>
                     </p>
                 </div>
             </div>

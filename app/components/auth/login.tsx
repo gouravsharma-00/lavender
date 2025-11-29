@@ -1,9 +1,10 @@
 "use client"
 
 import React, { useState } from 'react'
-import { FingerprintPattern, ScanFace  } from 'lucide-react';
-import {LoadingOverlay} from '@components';
+import { LoadingOverlay, ModelOverlay } from '@components';
 import { useRouter } from "next/navigation";
+
+import {FingerPrint} from '@components'
 
 export const LoginScreen = () => {
     const router = useRouter();
@@ -11,7 +12,10 @@ export const LoginScreen = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
+    const [model, setModel] = useState<{model: boolean, message: {title: string, body: string}}>(
+        {model: false, message: {title: "", body: ""}}
+    );
+
 
     const handleLogin = async (e) => {
         setLoading(true);
@@ -27,7 +31,7 @@ export const LoginScreen = () => {
         setLoading(false);
 
         if(data.status != 201) {
-            setError(data.message)
+            setModel({model: true, message: {title: "Error", body: data.message}})
         }
         else {
             localStorage.setItem("user", JSON.stringify(data.user));
@@ -96,10 +100,9 @@ export const LoginScreen = () => {
                         </button>
                     </div>
                 </form>
+
                 {/* error */}
-                <div className="relative flex justify-center text-sm">
-                    <span className="px-2 bg-white text-red-500 mt-1">{error}</span>
-                </div>
+                <ModelOverlay model={model} setModel={setModel} />
 
                 <div className="mt-6">
                     <div className="relative">
@@ -111,19 +114,11 @@ export const LoginScreen = () => {
                         </div>
                     </div>
                     
-                    <div className="mt-6 grid grid-cols-2 gap-3">
-                        <button onClick={() => router.push("/auth?action=passkeylogin")} type="button" className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            <FingerprintPattern />
-                        </button>
-                        
-                        <button onClick={() => router.push("/auth?action=passkeylogin")} type="button" className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            <ScanFace  />
-                        </button>
-                    </div>
+                    <FingerPrint type={"login"} />
                     
                     <p className="mt-6 text-center text-sm text-gray-600">
                         Don't have an account? 
-                        <a href="/auth?action=register" className="font-medium text-blue-600 hover:text-blue-500">Sign up</a>
+                        <a href="/auth?action=register" className="font-medium text-blue-600 hover:text-blue-500"> Sign up</a>
                     </p>
                 </div>
             </div>
