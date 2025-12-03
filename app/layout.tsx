@@ -1,5 +1,6 @@
 import React from 'react'
 import "./globals.css";
+import { UserProvider } from '@libs/hooks/useContext';
 
 export default function RootLayout({children} : {children: React.ReactNode}) {
     return(
@@ -9,7 +10,9 @@ export default function RootLayout({children} : {children: React.ReactNode}) {
                 <title>Lavender | Those who want to win</title>
             </head>
             <body>
-                {children}
+                <UserProvider>
+                    {children}
+                </UserProvider>
             </body>
         </html>
     )

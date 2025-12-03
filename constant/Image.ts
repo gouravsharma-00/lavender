@@ -1,5 +1,5 @@
 export const IMG = {
-    hero: ""
+    Favicon: "/icons/lavender.png"
 }
 
 export const GIF = {

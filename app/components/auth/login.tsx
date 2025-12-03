@@ -3,12 +3,12 @@
 import React, { useState } from 'react'
 import { LoadingOverlay, ModelOverlay } from '@components';
 import { useRouter } from "next/navigation";
-
+import { useUser } from '@libs/hooks/useContext'
 import {FingerPrint} from '@components'
 
 export const LoginScreen = () => {
     const router = useRouter();
-
+    const { setUserId, setUserEmail  } = useUser();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
@@ -35,6 +35,8 @@ export const LoginScreen = () => {
         }
         else {
             localStorage.setItem("user", JSON.stringify(data.user));
+            setUserId(data.user._id)
+            setUserEmail(data.user.email)
             router.replace('/client')
         }        
     }

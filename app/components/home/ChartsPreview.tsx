@@ -186,7 +186,7 @@ export const ChartsPreview = () => {
                 <div className="w-full bg-slate-200 rounded-full h-2">
                   <div
                     className={`h-full rounded-full transition-all ${item.status === "good" ? "bg-[#10B981]" : "bg-red-500"}`}
-                    style={{ width: `${(item.actual / item.budget) * 100}%` }}
+                    style={{ width: `${(item.actual / item.budget) * 100}%`, maxWidth: "100%" }}
                   ></div>
                 </div>
 

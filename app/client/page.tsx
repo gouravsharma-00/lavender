@@ -1,22 +1,15 @@
-'use client'
+"use client"
+
 import { LoadingOverlay } from '@components'
-import React, {
-    useEffect, useState
-} from 'react'
+
 import ClientIndex from '.'
+import { useUser } from '@libs/hooks/useContext'
 
 export default function ClientPage() {
-    const [user, setUser] = useState<any>(null)
-
-    useEffect(() => {
-        const userData = localStorage.getItem("user")
-        if(userData) {
-            setUser(JSON.parse(userData))
-        }
-    }, [])
+    const { userId, email  } = useUser();
 
     return(
-        user ? <ClientIndex user={user}/>
+        userId ? <ClientIndex user={{userId, email}}/>
         
         : <LoadingOverlay show={true} />
     )

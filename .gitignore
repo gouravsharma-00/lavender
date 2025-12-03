@@ -12,4 +12,4 @@ __pycahce__/
 *.egg-info/
 
 .venv
-models
+.ai/models

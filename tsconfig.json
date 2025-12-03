@@ -21,7 +21,8 @@
       "@constant" : ["./constant/index.ts"],
       "@components" : ["./app/components/index"],
       "@components/*" : ["./app/components/*"],
-      "@libs/*" : ["./libs/*"]
+      "@libs/*" : ["./libs/*"],
+      "@libs/model" : ["./libs/models/index.ts"]
 
     },
     "plugins": [

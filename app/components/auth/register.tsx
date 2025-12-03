@@ -2,10 +2,12 @@
 import React, { useState } from 'react'
 import { LoadingOverlay, ModelOverlay } from '@components';
 import { useRouter } from 'next/navigation';
+import { useUser } from '@libs/hooks/useContext'
 
 export const RegisterScreen = () => {
 
     const router = useRouter();
+    const { setUserId, setUserEmail } = useUser();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -32,6 +34,8 @@ export const RegisterScreen = () => {
         }
         else  {
             localStorage.setItem("user", JSON.stringify(data.user));
+            setUserId(data.user._id)
+            setUserEmail(data.user.email)
             router.replace('/client')
         }
     }
