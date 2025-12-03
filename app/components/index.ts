@@ -18,7 +18,8 @@ export * from './ui/fingerPrint'
 export * from './Model'
 export * from './Loading'
 
-// client
 
+// client
 export * from './client/ui/sideBar'
 export * from './client/Dashboard'
+export * from './client/TransactionPage'

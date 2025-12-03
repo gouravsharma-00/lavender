@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react'
 import { Sidebar } from '@components'
 
+import { FinanceProvider } from '@libs/hooks/useFinance'
 import {
     LoadingOverlay
 } from '@components'
@@ -12,7 +13,9 @@ export default function ClientLayout({children} : {children: React.ReactNode}) {
                 <Sidebar />
                 <main className="ml-64 min-h-screen">
                     <div className="container max-w-6xl p-8">
-                    {children}
+                        <FinanceProvider>
+                            {children}
+                        </FinanceProvider>
                     </div>
                 </main>
             </div>

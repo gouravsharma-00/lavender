@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { LayoutDashboard, Receipt, PiggyBank, User } from "lucide-react";
+import { LayoutDashboard, Receipt, PiggyBank, User, Brain, Landmark  } from "lucide-react";
 import { IMG } from "@constant";
 import { useUser } from '@libs/hooks/useContext'
 
@@ -10,6 +10,10 @@ const navItems = [
   { href: "/client/app?tab=dashboard", icon: LayoutDashboard, label: "Dashboard", name: "dashboard" },
   { href: "/client/app?tab=transactions", icon: Receipt, label: "Transactions", name: "transactions" },
   { href: "/client/app?tab=budgets", icon: PiggyBank, label: "Budgets", name: "budgets" },
+  { href: "/client/app?tab=ai", icon: Brain, label: "A.I", name: "ai" },
+  { href: "/client/app?tab=investment", icon: Landmark , label: "Investment", name: "investment" },
+
+
 ];
 
 export const Sidebar = () => {
