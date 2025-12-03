@@ -23,23 +23,6 @@ export const ALL_CATEGORIES = {
   Expense: EXPENSE_CATEGORIES
 } as const;
 
+export type AccountHealth = "grow" | "decline" | "neutral"
 
 export type TransactionType = "income" | "expense";
-
-export interface ITransaction {
-  _id?: string;
-  id?: string; // for frontend mapping
-  title: string;
-  amount: number;
-  type: TransactionType;
-  category: string;
-  date: string; // ISO
-  user?: mongoose.Types.ObjectId | null;
-}
-
-export interface IUser {
-  _id?: string;
-  name: string;
-  email: string;
-  createdAt?: Date;
-}

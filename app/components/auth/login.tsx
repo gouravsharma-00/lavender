@@ -37,6 +37,7 @@ export const LoginScreen = () => {
             localStorage.setItem("user", JSON.stringify(data.user));
             setUserId(data.user._id)
             setUserEmail(data.user.email)
+
             router.replace('/client')
         }        
     }

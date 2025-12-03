@@ -21,3 +21,4 @@ export * from './Loading'
 // client
 
 export * from './client/ui/sideBar'
+export * from './client/Dashboard'
