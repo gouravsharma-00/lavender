@@ -4,7 +4,7 @@ import { verifyAuthenticationResponse } from "@simplewebauthn/server";
 import { cookies } from "next/headers";
 
 import { connectDB } from "@libs/db";
-import User from "@libs/models/User";
+import {User} from "@libs/models";
 
 export async function POST(req: Request) {
     const authJSON = await req.json();

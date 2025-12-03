@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "@libs/db";
-import User from '@libs/models/User'
+import {User} from '@libs/models'
 
 import { generateAuthenticationOptions } from "@simplewebauthn/server";
 
